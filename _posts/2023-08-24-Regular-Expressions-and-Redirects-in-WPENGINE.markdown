@@ -5,27 +5,33 @@ date: 2023-08-24 08:00:00 -0400
 categories: wpengine regex
 ---
 
-Recently while working in wpengine.com on a 301 redirect I decided to look into using regular expressions in a more effective way to catch trailing forward slash (/) cases in WordPress. The way, up until this point, was to put in two rules to deal with the issue of the URL having or not having a trailing forward slash (/).
+Recently, while working in wpengine.com on a 301 redirect, I decided to look into using regular expressions in a more effective way to catch trailing forward slash (/) cases in WordPress. The way, up until this point, was to add two independant rules to deal with the issue of the URL having, or not having, a trailing forward slash (/).
 
 Regex Original
 {% highlight regex %}
-Rule 01: ^/unicorns?$ // Catches all URLS without a trailing forward slash (/)
-Rule 02: ^/unicorns/?$ // Catches all URLS with a trailing forward slash (/)
+Rule 01: ^/unicorns?$
+// Catches all URLS without a trailing forward slash (/)
+
+Rule 02: ^/unicorns/?$
+// Catches all URLS with a trailing forward slash (/)
 {% endhighlight %}
 
 Regex Improved
 {% highlight regex %}
-Rule 01: ^/unicorns[/]?$ // Catches all URLS with or without a trailing forward slash (/)
+Rule 01: ^/unicorns[/]?$
+// Catches all URLS with or without a trailing forward slash (/)
 {% endhighlight %}
 
 Taking this 1 stepe further we additionally modified the regex expressions to be case insensitive as we do not have direct control over what a user types into the browser URL bar. Although most modern browsers, by default, force the URL to lowercase there is aways the edge case where a user has modified their browser to allow for case sensitivity or the browser simply does not force the URL to lowercase for whatever reason.
 
 {% highlight regex %}
-Rule 01: ^/unicorns[/]?$ // Case Sensitive
+Rule 01: ^/unicorns[/]?$
+// Case Sensitive
 {% endhighlight %}
 
 {% highlight regex %}
-Rule 01: ^(?i)/unicorns[/]?$ // Case Insensitive thanks to adding in (?i) after the ^
+Rule 01: ^(?i)/unicorns[/]?$
+// Case Insensitive thanks to adding in (?i) after the ^
 {% endhighlight %}
 
 Notes
