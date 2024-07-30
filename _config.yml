@@ -31,7 +31,7 @@ github_username:  richardkrone
 
 # Build settings
 # theme: minima
-theme: architect
+remote_theme: architect
 plugins:
   - jekyll-feed
 
