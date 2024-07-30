@@ -34,6 +34,8 @@ theme: minima
 # theme: architect
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme # add this line to the plugins list if you already have one
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -56,5 +58,3 @@ plugins:
 #   - vendor/ruby/
 
 remote_theme: pages-themes/architect@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
